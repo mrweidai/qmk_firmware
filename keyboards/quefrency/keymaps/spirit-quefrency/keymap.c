@@ -102,12 +102,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return false;
         }
     }
-    case MACRO_EMOJI_WAIT: {
-        if (record->event.pressed) {
-            SEND_STRING("⌛"); // REPLACE with what you want your macro to be
-            return false;
-        }
-    }
   }
   return MACRO_NONE;
 };

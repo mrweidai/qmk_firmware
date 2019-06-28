@@ -27,6 +27,7 @@ enum {
     MACRO_EMOJI_HEART,
     MACRO_EMOJI_KEYBOARD,
     MACRO_EMOJI_NIGHT,
+    MACRO_TEXT_tT1,
     MACRO_EMOJI_ROUND_SHRUG,
     MACRO_EMOJI_SHRUG,
     MACRO_EMOJI_WAIT,
@@ -102,6 +103,12 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return false;
         }
     }
+    case MACRO_TEXT_tT1: {
+        if (record->event.pressed) {
+            SEND_STRING("testTEST1234"); // REPLACE with what you want your macro to be
+            return false;
+        }
+    }
   }
   return MACRO_NONE;
 };
@@ -133,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN3] = LAYOUT(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, M(MACRO_EMOJI_SHRUG), MACRO_EMOJI_DAY, MACRO_EMOJI_FORBIDDEN, _______, _______, MACRO_EMOJI_HEART, _______, MACRO_EMOJI_KEYBOARD, _______, _______, _______,\
-    _______, _______, MACRO_EMOJI_XOSS, MACRO_EMOJI_CHECK, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, M(MACRO_TEXT_tT1), _______, _______, _______, \
+    _______, _______, M(MACRO_EMOJI_SHRUG), M(MACRO_EMOJI_DAY), M(MACRO_EMOJI_FORBIDDEN), _______, _______, M(MACRO_EMOJI_HEART), _______, M(MACRO_EMOJI_KEYBOARD), _______, _______, _______,\
+    _______, _______, M(MACRO_EMOJI_XOSS), M(MACRO_EMOJI_CHECK), _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______
   )
 };
